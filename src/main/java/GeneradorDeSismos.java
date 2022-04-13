@@ -1,6 +1,3 @@
-import java.io.*;
-import java.io.InputStreamReader;
-import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class GeneradorDeSismos {
@@ -9,9 +6,11 @@ public class GeneradorDeSismos {
 
         int N;
         double[][] matriz;
+        double valorMaximo;
 
         N = Entrada();
         matriz = Matriz(N);
+        valorMaximo = IndiceDeLaMatriz(matriz, N);
 
     }
 
@@ -37,7 +36,20 @@ public class GeneradorDeSismos {
             }
         }
         return matriz;
-        
+
+    }
+    public static double IndiceDeLaMatriz(double[][] matriz, int N){
+
+           double valorMaximo = matriz[0][0];
+            for (int i = 0; i < N; i++){
+                for (int j = 0; j < 24; j++){
+                    if (valorMaximo < matriz[i][j]){
+                        valorMaximo = matriz[i][j];
+                    }
+                }
+                System.out.println(valorMaximo);
+                }
+            return valorMaximo;
     }
 }
 
